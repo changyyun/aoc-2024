@@ -26,14 +26,12 @@ def solve_2():
     data =  read_input()
     total = 0
     for row in data:
-        if is_safe(row):
-            total += 1
-        else:
-            size = len(row)
-            for i in range(size):
-                if is_safe(row[0:i] + row[i+1:size]):
-                    total += 1
-                    continue 
+        size = len(row)
+        for i in range(size):
+            if is_safe(row[:i] + row[i+1:]):
+                total += 1
+                break
+    
     print(total)
 
 
